@@ -93,6 +93,251 @@ nav .container {
   color: var(--text-secondary);
 }
 
+/* Wiki Home Page */
+.wiki-home {
+  padding: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wiki-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+  border-bottom: 2px solid var(--glass-border);
+}
+
+.wiki-header h1 {
+  margin-bottom: var(--spacing-md);
+  font-size: 2.5rem;
+}
+
+.wiki-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.wiki-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: var(--glass-light);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item strong {
+  display: block;
+  font-size: 2rem;
+  color: var(--accent-cyan);
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.stat-item span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wiki-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.wiki-section {
+  background: var(--glass-medium);
+  backdrop-filter: blur(20px);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+}
+
+.wiki-section h2 {
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--glass-border);
+  color: var(--text-primary);
+}
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.phase-item {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--glass-light);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--glass-border);
+  transition: all 0.2s ease;
+  align-items: flex-start;
+}
+
+.phase-item:hover {
+  background: var(--glass-strong);
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.phase-item svg {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.phase-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.phase-item span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+}
+
+.phase-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.contents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.content-box {
+  background: var(--glass-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+}
+
+.content-box h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.content-box h3 svg {
+  color: var(--accent-cyan);
+}
+
+.content-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content-box li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.content-box li:last-child {
+  border-bottom: none;
+}
+
+.content-box a {
+  color: var(--text-secondary);
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.content-box a:hover {
+  color: var(--accent-cyan);
+  padding-left: 0.5rem;
+}
+
+.key-mods-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.mod-row {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--glass-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+  align-items: center;
+}
+
+.mod-row strong {
+  min-width: 200px;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.mod-row span {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.planets-table {
+  overflow-x: auto;
+}
+
+.planets-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.planets-table th,
+.planets-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.planets-table th {
+  background: var(--glass-light);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.planets-table td {
+  color: var(--text-secondary);
+}
+
+.planets-table tr:hover {
+  background: var(--glass-light);
+}
+
+.planets-table strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
 /* Home Page */
 .home-page {
   padding-bottom: var(--spacing-xl);

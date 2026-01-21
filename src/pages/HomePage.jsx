@@ -1,190 +1,208 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Rocket, Sword, TreePine, Factory, ChevronRight, Star, Book, Package, FlaskConical } from 'lucide-react';
+import { Rocket, Sword, TreePine, Factory, Package, Book, Map, FlaskConical } from 'lucide-react';
 
 function HomePage() {
-
-  const phases = [
-    {
-      id: 'early',
-      title: 'Early Game',
-      days: '1-10',
-      icon: <TreePine size={32} />,
-      color: '#4caf50',
-      description: 'Survive dragons, find waystones, establish your base'
-    },
-    {
-      id: 'mid',
-      title: 'Mid Game',
-      days: '10-30',
-      icon: <Sword size={32} />,
-      color: '#ff9800',
-      description: 'Slay dragons, master technology, build your power'
-    },
-    {
-      id: 'late',
-      title: 'Late Game',
-      days: '30-60',
-      icon: <Factory size={32} />,
-      color: '#7b2cbf',
-      description: 'Build airships, produce fuel, prepare for space'
-    },
-    {
-      id: 'space',
-      title: 'Space Age',
-      days: '60+',
-      icon: <Rocket size={32} />,
-      color: '#00d4ff',
-      description: 'Conquer the cosmos, from Moon to asteroid belt'
-    }
-  ];
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="home-page"
-    >
-      {/* Hero Section */}
-      <section className="hero">
-        <motion.div
-          initial={{ y: -20 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          <h1>From Survivor to Space Emperor</h1>
-          <p className="hero-subtitle">
-            Your journey through 50+ mods, from hiding underground to conquering the stars
+    <div className="wiki-home">
+      <div className="container">
+        {/* Wiki Header */}
+        <div className="wiki-header">
+          <h1>Minecraft Space Modpack Wiki</h1>
+          <p className="wiki-description">
+            Documentation for a 50+ mod Forge 1.20.1 modpack featuring progression from survival to space exploration
           </p>
-        </motion.div>
+        </div>
 
-        <div className="hero-stats">
-          <div className="stat">
-            <span className="stat-value">50+</span>
-            <span className="stat-label">Mods</span>
+        {/* Quick Stats */}
+        <div className="wiki-stats">
+          <div className="stat-item">
+            <strong>50+</strong>
+            <span>Mods</span>
           </div>
-          <div className="stat">
-            <div className="stat-value">14</div>
-            <div className="stat-label">Story Chapters</div>
+          <div className="stat-item">
+            <strong>14</strong>
+            <span>Story Chapters</span>
           </div>
-          <div className="stat">
-            <div className="stat-value">7</div>
-            <div className="stat-label">Planets</div>
+          <div className="stat-item">
+            <strong>7</strong>
+            <span>Planets</span>
           </div>
-          <div className="stat">
-            <div className="stat-value">∞</div>
-            <div className="stat-label">Possibilities</div>
+          <div className="stat-item">
+            <strong>4</strong>
+            <span>Game Phases</span>
           </div>
         </div>
 
-      </section>
-
-      {/* Progression Path */}
-      <section className="progression-path">
-        <h2>Your Path to the Stars</h2>
-        <div className="phases">
-          {phases.map((phase, index) => (
-            <motion.div
-              key={phase.id}
-              className="phase-card"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
-              style={{ borderColor: phase.color }}
-            >
-              <div className="phase-icon" style={{ color: phase.color }}>
-                {phase.icon}
-              </div>
-              <h3>{phase.title}</h3>
-              <span className="phase-days">{phase.days}</span>
-              <p>{phase.description}</p>
-              <Link
-                to={`/guides/${phase.id}`}
-                className="btn btn-secondary"
-                style={{ color: phase.color, borderColor: phase.color }}
-              >
-                View Guide
-                <ChevronRight size={16} />
+        {/* Main Content Sections */}
+        <div className="wiki-content">
+          {/* Game Phases */}
+          <section className="wiki-section">
+            <h2>Game Phases</h2>
+            <div className="phase-grid">
+              <Link to="/guides/early" className="phase-item">
+                <TreePine size={28} />
+                <div>
+                  <h3>Early Game</h3>
+                  <span>Days 1-10</span>
+                  <p>Survival basics, dragon encounters, waystone travel</p>
+                </div>
               </Link>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+              <Link to="/guides/mid" className="phase-item">
+                <Sword size={28} />
+                <div>
+                  <h3>Mid Game</h3>
+                  <span>Days 10-30</span>
+                  <p>Dragon combat, TACZ weapons, storage systems</p>
+                </div>
+              </Link>
+              <Link to="/guides/late" className="phase-item">
+                <Factory size={28} />
+                <div>
+                  <h3>Late Game</h3>
+                  <span>Days 30-60</span>
+                  <p>Airship construction, fuel production, automation</p>
+                </div>
+              </Link>
+              <Link to="/guides/space" className="phase-item">
+                <Rocket size={28} />
+                <div>
+                  <h3>Space Age</h3>
+                  <span>Days 60+</span>
+                  <p>Rocket building, planetary exploration, space stations</p>
+                </div>
+              </Link>
+            </div>
+          </section>
 
-      {/* Quick Access */}
-      <section className="quick-actions">
-        <h2>Explore the Wiki</h2>
-        <div className="action-grid">
-          <Link to="/story" className="action-card">
-            <Book size={24} />
-            <span>Lore & Story</span>
-            <p>Discover the narrative from caves to cosmos</p>
-          </Link>
-          <Link to="/mods" className="action-card">
-            <Package size={24} />
-            <span>Mod Database</span>
-            <p>Complete guide to all 50+ mods</p>
-          </Link>
-          <Link to="/guides/early" className="action-card">
-            <Sword size={24} />
-            <span>Phase Guides</span>
-            <p>Comprehensive guides for each game phase</p>
-          </Link>
-          <Link to="/recipes" className="action-card">
-            <FlaskConical size={24} />
-            <span>Recipes</span>
-            <p>Essential crafting recipes and tips</p>
-          </Link>
-        </div>
-      </section>
+          {/* Quick Navigation */}
+          <section className="wiki-section">
+            <h2>Contents</h2>
+            <div className="contents-grid">
+              <div className="content-box">
+                <h3><Package size={20} /> Mod Database</h3>
+                <ul>
+                  <li><Link to="/mods">All Mods (50+)</Link></li>
+                  <li><Link to="/mods">Space & Dimensions</Link></li>
+                  <li><Link to="/mods">World Generation</Link></li>
+                  <li><Link to="/mods">Bosses & Combat</Link></li>
+                  <li><Link to="/mods">Technology & Automation</Link></li>
+                </ul>
+              </div>
 
-      {/* Key Features */}
-      <section className="features">
-        <h2>What Awaits You</h2>
-        <div className="feature-list">
-          <div className="feature">
-            <Star size={20} />
-            <span>Dragons to conquer and tame</span>
-          </div>
-          <div className="feature">
-            <Star size={20} />
-            <span>200+ new biomes to explore</span>
-          </div>
-          <div className="feature">
-            <Star size={20} />
-            <span>Modern weapons and technology</span>
-          </div>
-          <div className="feature">
-            <Star size={20} />
-            <span>Physics-based airships</span>
-          </div>
-          <div className="feature">
-            <Star size={20} />
-            <span>7 planets and space stations</span>
-          </div>
-          <div className="feature">
-            <Star size={20} />
-            <span>Automation and digital storage</span>
-          </div>
-        </div>
-      </section>
+              <div className="content-box">
+                <h3><Map size={20} /> Progression Guides</h3>
+                <ul>
+                  <li><Link to="/guides/early">Early Game Survival</Link></li>
+                  <li><Link to="/guides/mid">Mid Game Combat</Link></li>
+                  <li><Link to="/guides/late">Late Game Engineering</Link></li>
+                  <li><Link to="/guides/space">Space Age Exploration</Link></li>
+                </ul>
+              </div>
 
-      {/* Call to Action */}
-      <section className="cta">
-        <h2>Ready to Explore?</h2>
-        <p>From survival to space - everything you need to know</p>
-        <div className="cta-buttons">
-          <Link to="/mods" className="btn btn-primary btn-large">
-            Browse All Mods
-            <Package size={24} />
-          </Link>
-          <Link to="/guides/early" className="btn btn-secondary btn-large">
-            Getting Started
-            <TreePine size={24} />
-          </Link>
+              <div className="content-box">
+                <h3><FlaskConical size={20} /> Recipes & Crafting</h3>
+                <ul>
+                  <li><Link to="/recipes">Essential Recipes</Link></li>
+                  <li><Link to="/recipes">Space Equipment</Link></li>
+                  <li><Link to="/recipes">Ammunition</Link></li>
+                  <li><Link to="/recipes">Fuel Production</Link></li>
+                </ul>
+              </div>
+
+              <div className="content-box">
+                <h3><Book size={20} /> Lore & Story</h3>
+                <ul>
+                  <li><Link to="/story">Story Chapters (14)</Link></li>
+                  <li><Link to="/story">Key Milestones</Link></li>
+                  <li><Link to="/story">Quest Lines</Link></li>
+                  <li><Link to="/story">Featured Mods by Chapter</Link></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Key Mods */}
+          <section className="wiki-section">
+            <h2>Essential Mods</h2>
+            <div className="key-mods-list">
+              <div className="mod-row">
+                <strong>Ad Astra</strong>
+                <span>Space exploration mod with 7 planets and rocket building</span>
+              </div>
+              <div className="mod-row">
+                <strong>Ice and Fire</strong>
+                <span>Dragons in fire, ice, and lightning variants with taming</span>
+              </div>
+              <div className="mod-row">
+                <strong>Valkyrien Skies</strong>
+                <span>Physics-based ships and flying structures</span>
+              </div>
+              <div className="mod-row">
+                <strong>TACZ</strong>
+                <span>Modern weapons and guns for combat</span>
+              </div>
+              <div className="mod-row">
+                <strong>Refined Storage</strong>
+                <span>Digital storage system for managing items</span>
+              </div>
+              <div className="mod-row">
+                <strong>Oh The Biomes You'll Go</strong>
+                <span>200+ new biomes for exploration</span>
+              </div>
+            </div>
+          </section>
+
+          {/* Planet Guide */}
+          <section className="wiki-section">
+            <h2>Celestial Bodies</h2>
+            <div className="planets-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Planet</th>
+                    <th>Unlock Day</th>
+                    <th>Gravity</th>
+                    <th>Key Resources</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Moon</strong></td>
+                    <td>60</td>
+                    <td>Low</td>
+                    <td>Desh, Cheese</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Mars</strong></td>
+                    <td>65</td>
+                    <td>Medium</td>
+                    <td>Ostrum, Ice</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Venus</strong></td>
+                    <td>70</td>
+                    <td>High</td>
+                    <td>Calorite</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Mercury</strong></td>
+                    <td>75</td>
+                    <td>Low</td>
+                    <td>Advanced Ores</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Glacio</strong></td>
+                    <td>80</td>
+                    <td>Low</td>
+                    <td>Ice Resources</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
         </div>
-      </section>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 
