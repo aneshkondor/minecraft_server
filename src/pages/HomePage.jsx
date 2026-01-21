@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Rocket, Sword, TreePine, Factory, ChevronRight, Star, Book, Package, ChartBar, FlaskConical } from 'lucide-react';
-import { getCurrentChapter, getNextMilestone } from '../data/storyProgression';
+import { Rocket, Sword, TreePine, Factory, ChevronRight, Star, Book, Package, FlaskConical } from 'lucide-react';
 
-function HomePage({ progress }) {
-  const currentChapter = getCurrentChapter(progress.currentDay);
-  const nextMilestone = getNextMilestone(progress.currentDay);
+function HomePage() {
 
   const phases = [
     {
@@ -80,26 +77,6 @@ function HomePage({ progress }) {
           </div>
         </div>
 
-        {/* Current Progress */}
-        <div className="current-progress">
-          <h3>Your Current Chapter</h3>
-          <div className="chapter-card">
-            <h4>{currentChapter.title}</h4>
-            <p>{currentChapter.story.substring(0, 150)}...</p>
-            <Link to="/story" className="btn btn-primary">
-              Continue Story
-              <ChevronRight size={20} />
-            </Link>
-          </div>
-
-          {nextMilestone && (
-            <div className="next-milestone">
-              <span>Next Milestone:</span>
-              <strong>{nextMilestone.name}</strong>
-              <span className="milestone-day">Day {nextMilestone.day}</span>
-            </div>
-          )}
-        </div>
       </section>
 
       {/* Progression Path */}
@@ -134,29 +111,29 @@ function HomePage({ progress }) {
         </div>
       </section>
 
-      {/* Quick Actions */}
+      {/* Quick Access */}
       <section className="quick-actions">
-        <h2>Quick Access</h2>
+        <h2>Explore the Wiki</h2>
         <div className="action-grid">
           <Link to="/story" className="action-card">
             <Book size={24} />
-            <span>Story Mode</span>
-            <p>Follow the narrative from caves to cosmos</p>
+            <span>Lore & Story</span>
+            <p>Discover the narrative from caves to cosmos</p>
           </Link>
           <Link to="/mods" className="action-card">
             <Package size={24} />
-            <span>Browse Mods</span>
-            <p>Explore all 50+ mods in detail</p>
+            <span>Mod Database</span>
+            <p>Complete guide to all 50+ mods</p>
           </Link>
-          <Link to="/progression" className="action-card">
-            <ChartBar size={24} />
-            <span>Track Progress</span>
-            <p>Check your milestones and quests</p>
+          <Link to="/guides/early" className="action-card">
+            <Sword size={24} />
+            <span>Phase Guides</span>
+            <p>Comprehensive guides for each game phase</p>
           </Link>
           <Link to="/recipes" className="action-card">
             <FlaskConical size={24} />
             <span>Recipes</span>
-            <p>Essential crafting recipes</p>
+            <p>Essential crafting recipes and tips</p>
           </Link>
         </div>
       </section>
@@ -194,15 +171,15 @@ function HomePage({ progress }) {
 
       {/* Call to Action */}
       <section className="cta">
-        <h2>Ready to Begin Your Journey?</h2>
-        <p>Start as a survivor, become a space emperor</p>
+        <h2>Ready to Explore?</h2>
+        <p>From survival to space - everything you need to know</p>
         <div className="cta-buttons">
-          <Link to="/story" className="btn btn-primary btn-large">
-            Start Your Story
-            <Rocket size={24} />
+          <Link to="/mods" className="btn btn-primary btn-large">
+            Browse All Mods
+            <Package size={24} />
           </Link>
-          <Link to={`/guides/early`} className="btn btn-secondary btn-large">
-            Survival Guide
+          <Link to="/guides/early" className="btn btn-secondary btn-large">
+            Getting Started
             <TreePine size={24} />
           </Link>
         </div>

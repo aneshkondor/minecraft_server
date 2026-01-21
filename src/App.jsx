@@ -5,28 +5,24 @@ import HomePage from './pages/HomePage';
 import StoryPage from './pages/StoryPage';
 import ModsPage from './pages/ModsPage';
 import GuidesPage from './pages/GuidesPage';
-import ProgressionPage from './pages/ProgressionPage';
 import RecipesPage from './pages/RecipesPage';
 import './App.css';
 
 function App() {
-  const [playerProgress, setPlayerProgress] = useState(() => {
-    const saved = localStorage.getItem('playerProgress');
+  const [progress, setProgress] = useState(() => {
+    const saved = localStorage.getItem('wikiProgress');
     return saved ? JSON.parse(saved) : {
-      currentDay: 1,
-      currentChapter: 'chapter1',
-      completedMilestones: [],
-      unlockedMods: [],
-      completedQuests: []
+      completedQuests: [],
+      bookmarkedMods: []
     };
   });
 
   useEffect(() => {
-    localStorage.setItem('playerProgress', JSON.stringify(playerProgress));
-  }, [playerProgress]);
+    localStorage.setItem('wikiProgress', JSON.stringify(progress));
+  }, [progress]);
 
   const updateProgress = (updates) => {
-    setPlayerProgress(prev => ({
+    setProgress(prev => ({
       ...prev,
       ...updates
     }));
@@ -35,14 +31,13 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Navigation progress={playerProgress} />
+        <Navigation />
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<HomePage progress={playerProgress} />} />
-            <Route path="/story" element={<StoryPage progress={playerProgress} updateProgress={updateProgress} />} />
-            <Route path="/mods" element={<ModsPage progress={playerProgress} />} />
-            <Route path="/guides/:phase" element={<GuidesPage progress={playerProgress} />} />
-            <Route path="/progression" element={<ProgressionPage progress={playerProgress} updateProgress={updateProgress} />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/story" element={<StoryPage progress={progress} updateProgress={updateProgress} />} />
+            <Route path="/mods" element={<ModsPage />} />
+            <Route path="/guides/:phase" element={<GuidesPage />} />
             <Route path="/recipes" element={<RecipesPage />} />
           </Routes>
         </main>

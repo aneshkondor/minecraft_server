@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Package, Filter, Star, Search } from 'lucide-react';
 import { modsData, categories, phases } from '../data/completeModsData';
 
-function ModsPage({ progress }) {
+function ModsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedPhase, setSelectedPhase] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');

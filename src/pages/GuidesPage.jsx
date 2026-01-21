@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Map, AlertTriangle, CheckCircle, Lightbulb, ChevronRight } from 'lucide-react';
 import { phaseGuides } from '../data/guidesData';
 
-function GuidesPage({ progress }) {
+function GuidesPage() {
   const { phase } = useParams();
   const [activeSection, setActiveSection] = useState(0);
   const guide = phaseGuides[phase] || phaseGuides.early;
