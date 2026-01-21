@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Navigation from './components/Navigation';
+import HomePage from './pages/HomePage';
+import StoryPage from './pages/StoryPage';
+import ModsPage from './pages/ModsPage';
+import GuidesPage from './pages/GuidesPage';
+import ProgressionPage from './pages/ProgressionPage';
+import RecipesPage from './pages/RecipesPage';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [playerProgress, setPlayerProgress] = useState(() => {
+    const saved = localStorage.getItem('playerProgress');
+    return saved ? JSON.parse(saved) : {
+      currentDay: 1,
+      currentChapter: 'chapter1',
+      completedMilestones: [],
+      unlockedMods: [],
+      completedQuests: []
+    };
+  });
+
+  useEffect(() => {
+    localStorage.setItem('playerProgress', JSON.stringify(playerProgress));
+  }, [playerProgress]);
+
+  const updateProgress = (updates) => {
+    setPlayerProgress(prev => ({
+      ...prev,
+      ...updates
+    }));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="app">
+        <Navigation progress={playerProgress} />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<HomePage progress={playerProgress} />} />
+            <Route path="/story" element={<StoryPage progress={playerProgress} updateProgress={updateProgress} />} />
+            <Route path="/mods" element={<ModsPage progress={playerProgress} />} />
+            <Route path="/guides/:phase" element={<GuidesPage progress={playerProgress} />} />
+            <Route path="/progression" element={<ProgressionPage progress={playerProgress} updateProgress={updateProgress} />} />
+            <Route path="/recipes" element={<RecipesPage />} />
+          </Routes>
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
