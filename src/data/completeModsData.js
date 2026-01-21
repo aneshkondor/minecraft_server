@@ -31,7 +31,8 @@ export const modsData = [
       'Oxygen Loader': '4x Steel + 1x Fan + 3x Oxygen Tanks'
     },
     tips: 'Start with Moon for Desh, then Mars for Ostrum, finally Venus for Calorite',
-    icon: '🚀'
+    icon: '🚀',
+    wikiUrl: 'https://wiki.ad-astra-mod.com'
   },
   {
     id: 'ad-astra-giselle',
@@ -266,7 +267,8 @@ export const modsData = [
       'Dragon Forge': 'Requires Fire Dragon + Ice Dragon cores'
     },
     tips: 'Dragons sleep at night. Start with Tier 1-2 surface dragons.',
-    icon: '🐉'
+    icon: '🐉',
+    wikiUrl: 'https://github.com/Alex-the-666/Ice_and_Fire/wiki'
   },
   {
     id: 'apotheosis',
@@ -297,7 +299,8 @@ export const modsData = [
       'Spawner Modifier': 'Various items modify spawner behavior'
     },
     tips: 'Combine books before applying to save XP',
-    icon: '⚔️'
+    icon: '⚔️',
+    wikiUrl: 'https://github.com/Shadows-of-Fire/Apotheosis/wiki'
   },
   {
     id: 'apothic-attributes',
@@ -370,7 +373,8 @@ export const modsData = [
       'Pistol': '4x Iron + 1x Wood + 2x Iron Nuggets'
     },
     tips: 'Headshots deal 3x damage. Perfect for dragon hunting.',
-    icon: '🔫'
+    icon: '🔫',
+    wikiUrl: 'https://github.com/bitzlay/tcz-jw/wiki'
   },
 
   // ========== TECHNOLOGY & AUTOMATION ==========
@@ -404,7 +408,8 @@ export const modsData = [
       '1k Storage': '3x Quartz + 2x Redstone + 3x Glass'
     },
     tips: 'Start with 1k disks, upgrade as needed. External storage for bulk items.',
-    icon: '💾'
+    icon: '💾',
+    wikiUrl: 'https://refinedmods.com/refined-storage/'
   },
   {
     id: 'compact-machines',
@@ -433,7 +438,8 @@ export const modsData = [
       'Tunnel': '4x Redstone + 4x Iron + 1x Hopper'
     },
     tips: 'Put all farms inside Compact Machines to eliminate lag',
-    icon: '📦'
+    icon: '📦',
+    wikiUrl: 'https://github.com/CompactMods/CompactMachines/wiki'
   },
   {
     id: 'securitycraft',
@@ -494,7 +500,8 @@ export const modsData = [
       'Bound Scroll': '3x Paper + 1x Ender Pearl'
     },
     tips: 'Villages always have waystones. Name them clearly!',
-    icon: '🗿'
+    icon: '🗿',
+    wikiUrl: 'https://github.com/blay09/waystones/wiki'
   },
 
   // ========== PHYSICS & ENGINEERING ==========
@@ -527,7 +534,8 @@ export const modsData = [
       'Propeller': '4x Iron + 1x Iron Block'
     },
     tips: 'Balance is crucial. Start small, expand gradually.',
-    icon: '⛵'
+    icon: '⛵',
+    wikiUrl: 'https://wiki.valkyrienskies.org/'
   },
   {
     id: 'eureka-ships',

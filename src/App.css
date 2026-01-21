@@ -619,6 +619,29 @@ nav .container {
   color: var(--text-secondary);
 }
 
+.mod-wiki-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--spacing-md);
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-md);
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.mod-wiki-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: white;
+  text-shadow: none;
+}
+
 /* Guides Page */
 .guides-page {
   padding: var(--spacing-lg);

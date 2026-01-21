@@ -145,6 +145,17 @@ function ModsPage() {
                 💡 {mod.tips}
               </div>
             )}
+
+            {mod.wikiUrl && (
+              <a
+                href={mod.wikiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mod-wiki-link"
+              >
+                📖 View Official Wiki
+              </a>
+            )}
           </motion.div>
         ))}
       </div>
